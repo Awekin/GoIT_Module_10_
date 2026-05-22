@@ -1,10 +1,11 @@
-import java.io.FileNotFoundException;
+package org.example;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-class Task1 {
+class Validator {
     public static void valid(String filePath) throws FileNotFoundException {
         String regex = "[0-9]{3}-[0-9]{3}-[0-9]{4}|\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}";
 
@@ -19,13 +20,5 @@ class Task1 {
         } catch (IOException e) {
             System.err.println("Помилка під час читання файлу: " + e.getMessage());
         }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-
-        // Завдання 1
-        Task1.valid("src/file1.txt");
     }
 }
