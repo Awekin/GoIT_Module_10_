@@ -16,12 +16,11 @@ class Task3 {
     public static void countWordFrequency(String fileName) {
         InputStream inputStream = Task3.class.getClassLoader().getResourceAsStream(fileName);
         if (inputStream == null) {
-            System.err.println("Помилка: Файл " + fileName + " не знайдено у resources.");
+            System.err.println("Файл " + fileName + " не знайдено у resources.");
             return;
         }
 
         Map<String, Integer> wordCounts = new HashMap<>();
-
         try (inputStream) {
             byte[] buffer = inputStream.readAllBytes();
             String content = new String(buffer);
@@ -30,10 +29,9 @@ class Task3 {
                 wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
             }
         } catch (IOException e) {
-            System.err.println("Помилка читання файлу: " + e.getMessage());
+            System.err.println("Помилка: " + e.getMessage());
             return;
         }
-
         List<Map.Entry<String, Integer>> sortedList = new ArrayList<>(wordCounts.entrySet());
         sortedList.sort((a, b) -> b.getValue().compareTo(a.getValue()));
 
